@@ -1,9 +1,11 @@
 import { Eye, EyeOff, LockIcon, User } from "lucide-react";
 import { Button } from "../../components/button";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const tooglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -50,7 +52,11 @@ export function LoginPage() {
           </a>
         </div>
 
-        <Button variant="primary" size="full">
+        <Button
+          variant="primary"
+          size="full"
+          onClick={() => navigate("/create-trip")}
+        >
           Login
         </Button>
       </div>
